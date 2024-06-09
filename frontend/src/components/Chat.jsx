@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import './Chat.css';
 
-const Dictaphone = () => {
+const Chat = () => {
   const {
     transcript,
     listening,
@@ -35,7 +35,8 @@ const Dictaphone = () => {
           "max_new_tokens": 300
         }
       };
-// This code is fetching answer from Llama
+
+
       const response = await fetch(
         "https://lx4k38avll1ytp4b.us-east-1.aws.endpoints.huggingface.cloud",
         {
@@ -54,9 +55,11 @@ const Dictaphone = () => {
       const format1 = formattedText.replace('[INST] >', '');
       const format2 = format1.replace('[INST]', '');
       const format3 = format2.replace('[/INST]', '');
+
       console.log(format3);
       const len = speechString.length;
       const finalRes = format3.slice(len);
+
       setSpeechString("");
       return finalRes;
     }
@@ -81,6 +84,7 @@ const Dictaphone = () => {
     }
   };
 
+ 
   const RenderResponseContainer = ({eachConv}) => (
     <div className={`eachConversationContainer ${eachConv.side === "bot" ? 'botTextStyling' : 'clientTextStyling'}`}>
       <p>{eachConv.response}</p>
@@ -96,6 +100,7 @@ const Dictaphone = () => {
       <div className="conversationsContainer">
         <h1>Responses</h1>
         {conversationsList.map((eachConv, index) => (
+        feature-2
           <RenderResponseContainer key = {index} eachConv = {eachConv}/>
         ))}
       </div>
@@ -120,4 +125,6 @@ const Dictaphone = () => {
   );
 };
 
-export default Dictaphone;
+
+export default Chat;
+
