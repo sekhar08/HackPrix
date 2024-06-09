@@ -16,9 +16,9 @@ const Navbar = () => {
           <Link to="/forum">
             <h1>Forum</h1>
           </Link>
-          <Link to="/messages">
+          {/* <Link to="/messages">
             <h1>Messages</h1>
-          </Link>
+          </Link> */}
         </div>
     </div>
   )
