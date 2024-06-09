@@ -35,7 +35,7 @@ const Dictaphone = () => {
           "max_new_tokens": 300
         }
       };
-
+// This code is fetching answer from Llama
       const response = await fetch(
         "https://lx4k38avll1ytp4b.us-east-1.aws.endpoints.huggingface.cloud",
         {
