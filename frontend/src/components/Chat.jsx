@@ -100,7 +100,6 @@ const Chat = () => {
       <div className="conversationsContainer">
         <h1>Responses</h1>
         {conversationsList.map((eachConv, index) => (
-        feature-2
           <RenderResponseContainer key = {index} eachConv = {eachConv}/>
         ))}
       </div>
