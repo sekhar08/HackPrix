@@ -55,13 +55,13 @@ const Chat = () => {
       const format1 = formattedText.replace('[INST] >', '');
       const format2 = format1.replace('[INST]', '');
       const format3 = format2.replace('[/INST]', '');
-
       console.log(format3);
       const len = speechString.length;
       const finalRes = format3.slice(len);
+      const format4 = finalRes.slice(1);
 
       setSpeechString("");
-      return finalRes;
+      return format4;
     }
   };
 
@@ -80,6 +80,7 @@ const Chat = () => {
     if (listening) {
       SpeechRecognition.stopListening();
     } else {
+      setSpeechString("")
       SpeechRecognition.startListening({ continuous: true });
     }
   };
