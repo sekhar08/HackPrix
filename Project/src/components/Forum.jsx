@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 
 const Forum = () => {
-  // State to hold the list of messages
+  
   const [messages, setMessages] = useState([]);
-  // State to hold the current message input
   const [currentMessage, setCurrentMessage] = useState('');
 
-  // Function to handle sending a message
   const sendMessage = () => {
     if (currentMessage.trim()) {
-      // Add the new message to the messages array
+    
       setMessages([...messages, currentMessage]);
-      // Clear the input field
       setCurrentMessage('');
     }
   };
