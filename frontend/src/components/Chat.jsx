@@ -36,6 +36,7 @@ const Chat = () => {
         }
       };
 
+
       const response = await fetch(
         "https://lx4k38avll1ytp4b.us-east-1.aws.endpoints.huggingface.cloud",
         {
@@ -54,8 +55,11 @@ const Chat = () => {
       const format1 = formattedText.replace('[INST] >', '');
       const format2 = format1.replace('[INST]', '');
       const format3 = format2.replace('[/INST]', '');
+
+      console.log(format3);
       const len = speechString.length;
-      const finalRes = format3.slice(len + 1);
+      const finalRes = format3.slice(len);
+
       setSpeechString("");
       return finalRes;
     }
@@ -80,8 +84,9 @@ const Chat = () => {
     }
   };
 
-  const renderResponseContainer = (eachConv) => (
-    <div className={`eachConversationContainer ${eachConv.side === "client" ? 'clientTextStyling' : 'botTextStyling'}`}>
+ 
+  const RenderResponseContainer = ({eachConv}) => (
+    <div className={`eachConversationContainer ${eachConv.side === "bot" ? 'botTextStyling' : 'clientTextStyling'}`}>
       <p>{eachConv.response}</p>
     </div>
   );
@@ -95,7 +100,8 @@ const Chat = () => {
       <div className="conversationsContainer">
         <h1>Responses</h1>
         {conversationsList.map((eachConv, index) => (
-          <div key={index}>{renderResponseContainer(eachConv)}</div>
+        feature-2
+          <RenderResponseContainer key = {index} eachConv = {eachConv}/>
         ))}
       </div>
       <div className="inputContainer">
@@ -119,4 +125,6 @@ const Chat = () => {
   );
 };
 
+
 export default Chat;
+
